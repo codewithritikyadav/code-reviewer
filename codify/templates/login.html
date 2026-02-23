@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Codify</title>
+    <!-- Bootstrap -->
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel ="stylesheet" href="{% static 'login.css' %}">
+        
+</head>
+
+<body>
+
+    <form class="login-card" method="post">
+        {% csrf_token %}
+
+        <div class="brand">
+            <h1>Cod<span>ify</span></h1>
+            <p>Welcome back 👋</p>
+        </div>
+
+        <h3 class="text-center">Login</h3>
+
+        {% if messages %}
+            <div class="alert alert-warning">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter username" required>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter password" required>
+        </div>
+
+        <button type="submit" class="btn btn-login btn-block mt-3">
+            Login
+        </button>
+
+        <div class="register-link text-center">
+            Don’t have an account?
+            <a href="/register/">Register</a>
+        </div>
+    </form>
+
+</body>
+</html>

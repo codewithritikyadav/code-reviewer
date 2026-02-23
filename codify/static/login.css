@@ -1,0 +1,132 @@
+/* Global */
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(
+        circle at top,
+        #1a1a1a,
+        #050505 70%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e6d8a3;
+}
+
+/* Login card */
+.login-card {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 215, 0, 0.08),
+        rgba(0, 0, 0, 0.9)
+    );
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 35px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow:
+        0 0 30px rgba(255, 215, 0, 0.18),
+        inset 0 0 25px rgba(255, 215, 0, 0.05);
+}
+
+/* Brand */
+.brand h1 {
+    font-weight: 700;
+    color: #f5e6b8;
+    letter-spacing: 1px;
+}
+
+.brand span {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.brand p {
+    color: #d6c98f;
+}
+
+/* Headings */
+.login-card h3 {
+    color: #ffd700;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+/* Labels */
+label {
+    font-weight: 500;
+    color: #e6d8a3;
+}
+
+/* Inputs */
+.form-control {
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    border-radius: 30px;
+    padding: 12px 20px;
+    color: #f5e6b8;
+}
+
+.form-control::placeholder {
+    color: #b8aa6d;
+}
+
+.form-control:focus {
+    background: rgba(0, 0, 0, 0.75);
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.35);
+    color: #fff;
+}
+
+/* Login button */
+.btn-login {
+    background: linear-gradient(
+        135deg,
+        #ffd700,
+        #c9a227
+    );
+    border: none;
+    border-radius: 30px;
+    padding: 12px;
+    font-weight: 600;
+    color: #0a0a0a;
+    transition: all 0.35s ease;
+    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.35);
+}
+
+/* Soft hover glow */
+.btn-login:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow:
+        0 0 25px rgba(255, 215, 0, 0.7),
+        0 0 50px rgba(255, 215, 0, 0.35);
+}
+
+/* Register link */
+.register-link {
+    margin-top: 18px;
+    font-size: 14px;
+    color: #d6c98f;
+}
+
+.register-link a {
+    color: #ffd700;
+    font-weight: 600;
+    text-decoration: none;
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #fff1b8;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+/* Alerts */
+.alert {
+    border-radius: 12px;
+    background: rgba(255, 215, 0, 0.12);
+    color: #fff1b8;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+}
