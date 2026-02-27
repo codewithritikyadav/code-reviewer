@@ -27,7 +27,7 @@ DEBUG = True
 
 import os
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://ai-code-reviewer-syjh.onrender.com"]
 
 
 # Application definition
