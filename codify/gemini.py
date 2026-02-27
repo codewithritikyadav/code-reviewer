@@ -31,23 +31,22 @@ REVIEW STEPS (FOLLOW IN ORDER):
 - Rate the code correctness from 0 to 100 percent.
 - Briefly explain why you gave this score.
 
-2) LINE BY LINE REVIEW
+2) ERRORS AND BUGS
+- List all syntax errors, logical errors, and runtime issues.
+- Explain why each issue is a problem.
+
+3) IMPROVEMENTS AND BEST PRACTICES
+- Suggest cleaner, safer, and more efficient approaches.
+- Mention readability, performance, and correctness improvements.
+
+
+4) LINE BY LINE REVIEW
 - Go through the code step by step.
 - Explain what each important line does.
 - Clearly point out incorrect or problematic lines.
 
-3) ERRORS AND BUGS
-- List all syntax errors, logical errors, and runtime issues.
-- Explain why each issue is a problem.
-
-4) IMPROVEMENTS AND BEST PRACTICES
-- Suggest cleaner, safer, and more efficient approaches.
-- Mention readability, performance, and correctness improvements.
-
-5) FINAL CORRECTED CODE
-- Provide a fully corrected, clean, and working version of the code.
-- The code must be directly copy-paste runnable.
-- Do not include explanations inside the code.
+5) FINAL CORRECT CODE 
+- provide the user the correct code so they can copy paste
 
 LANGUAGE:
 {language}

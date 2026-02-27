@@ -19,7 +19,7 @@
     <nav>
         <a href="/">Home</a>
         <a href="/history/">History</a>
-        <a href="/logout/">Logout</a>
+        <a href="{% url 'logout' %}">Logout</a>
     </nav>
 </header>
 
@@ -61,19 +61,66 @@
         <h2>AI Review</h2>
 
         <div class="review-output">
-            {% if ai_result %}
-                <pre>{{ ai_result }}</pre>
+
+            {% if sections %}
+
+            <div class="ai-container">
+
+                {% if sections.score %}
+                <div class="review-card">
+                    <h3>📊 Code Score</h3>
+                    <div class="card-content">
+                        {{ sections.score|linebreaks }}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if sections.errors %}
+                <div class="review-card">
+                    <h3>🐞 Errors & Bugs</h3>
+                    <div class="card-content">
+                        {{ sections.errors|linebreaks }}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if sections.improvements %}
+                <div class="review-card">
+                    <h3>🚀 Improvements</h3>
+                    <div class="card-content">
+                        {{ sections.improvements|linebreaks }}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if sections.explanation %}
+                <div class="review-card">
+                    <h3>📘 Line-by-Line Explanation</h3>
+                    <div class="card-content">
+                        {{ sections.explanation|linebreaks }}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if sections.final_code %}
+                <div class="review-card code-card">
+                    <h3>✅ Final Correct Code</h3>
+                    <pre>{{ sections.final_code }}</pre>
+                </div>
+                {% endif %}
+
+            </div>
+
             {% else %}
                 <p class="placeholder">
                     Your AI code review will appear here after submission.
                 </p>
             {% endif %}
+
         </div>
     </section>
 
 </main>
-
-
 
 </body>
 </html>

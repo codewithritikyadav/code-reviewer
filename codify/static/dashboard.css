@@ -1,178 +1,218 @@
-/* RESET */
+/* =========================
+   GLOBAL
+========================= */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* BODY */
 body {
-  background: #ffffff;
-  color: #0f172a;
-  min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
+
 .navbar {
-  height: 70px;
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+    color: white;
 }
 
 .logo {
-  font-size: 22px;
-  font-weight: 700;
-  color: #0f172a;
+    font-size: 22px;
+    font-weight: 700;
+    color: #00e5ff;
 }
 
 .logo span {
-  color: #2563eb; /* electric blue */
+    color: #c400ff;
 }
 
 .navbar nav a {
-  margin-left: 28px;
-  text-decoration: none;
-  color: #475569;
-  font-weight: 500;
-  transition: color 0.3s ease;
+    margin-left: 25px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
 .navbar nav a:hover {
-  color: #7c3aed; /* neon purple */
+    color: #00e5ff;
 }
 
-/* DASHBOARD LAYOUT */
+/* =========================
+   DASHBOARD LAYOUT
+========================= */
+
 .dashboard {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  padding: 40px;
+    display: flex;
+    gap: 40px;
+    padding: 40px;
 }
 
-/* PANELS */
 .editor-section,
 .review-section {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 30px;
-  border: 1px solid rgba(99, 102, 241, 0.25);
-  box-shadow:
-    0 10px 40px rgba(37, 99, 235, 0.08),
-    0 0 30px rgba(124, 58, 237, 0.08);
+    flex: 1;
+    background: #f9f9ff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
 }
+
+/* =========================
+   FORM STYLING
+========================= */
 
 .editor-section h2,
 .review-section h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: 600;
-  color: #0f172a;
+    margin-bottom: 20px;
+    color: #302b63;
 }
 
-/* FORM */
-.editor-section form {
-  display: flex;
-  flex-direction: column;
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 2px solid #e0e0ff;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
 }
 
-.editor-section label {
-  font-size: 14px;
-  color: #475569;
-  margin-bottom: 6px;
+select:focus,
+textarea:focus {
+    border-color: #00e5ff;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
 }
 
-.editor-section select {
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid rgba(37, 99, 235, 0.4);
-  border-radius: 10px;
-  padding: 12px;
-  margin-bottom: 18px;
-  outline: none;
-  transition: all 0.25s ease;
+textarea {
+    height: 250px;
+    resize: vertical;
+    font-family: monospace;
 }
 
-.editor-section select:focus {
-  border-color: #7c3aed;
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
-}
-
-.editor-section textarea {
-  min-height: 260px;
-  resize: vertical;
-  background: #f8fafc;
-  color: #0f172a;
-  border: 1px solid rgba(37, 99, 235, 0.4);
-  border-radius: 12px;
-  padding: 16px;
-  font-size: 14px;
-  outline: none;
-  margin-bottom: 20px;
-  transition: all 0.25s ease;
-}
-
-.editor-section textarea:focus {
-  border-color: #7c3aed;
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
-}
-
-.editor-section textarea::placeholder {
-  color: #94a3b8;
-}
-
-/* BUTTON */
 .review-btn {
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
-  border: none;
-  color: #ffffff;
-  padding: 14px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: linear-gradient(90deg, #00e5ff, #c400ff);
+    border: none;
+    padding: 12px 20px;
+    color: white;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .review-btn:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 12px 30px rgba(37, 99, 235, 0.35),
-    0 0 25px rgba(124, 58, 237, 0.45);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(196, 0, 255, 0.3);
 }
 
-/* AI REVIEW OUTPUT */
-.review-output {
-  background: #f8fafc;
-  border-radius: 14px;
-  padding: 20px;
-  min-height: 350px;
-  overflow-y: auto;
-  border: 1px solid rgba(99, 102, 241, 0.25);
+/* =========================
+   AI RESULT CONTAINER
+========================= */
+
+.ai-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
 }
 
-.review-output pre {
-  white-space: pre-wrap;
-  color: #0f172a;
-  font-size: 14px;
-  line-height: 1.6;
+/* =========================
+   REVIEW CARDS
+========================= */
+
+.review-card {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 22px;
+    position: relative;
+    transition: all 0.35s ease;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
+
+/* Gradient Border Effect */
+.review-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 2px;
+    background: linear-gradient(135deg, #00e5ff, #c400ff);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Title */
+.review-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #302b63;
+}
+
+/* Content */
+.card-content {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* Hover Glow */
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 20px 40px rgba(0, 229, 255, 0.25),
+        0 10px 30px rgba(196, 0, 255, 0.25);
+}
+
+/* =========================
+   FINAL CODE CARD
+========================= */
+
+.code-card {
+    background: #0f0c29;
+    color: white;
+}
+
+.code-card h3 {
+    color: #00e5ff;
+}
+
+.code-card pre {
+    background: #1a1a3a;
+    color: #00e5ff;
+    padding: 20px;
+    border-radius: 14px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* =========================
+   PLACEHOLDER
+========================= */
 
 .placeholder {
-  color: #64748b;
-  font-style: italic;
-}
-
-
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .dashboard {
-    grid-template-columns: 1fr;
-  }
+    color: #888;
+    font-size: 14px;
+    margin-top: 20px;
 }

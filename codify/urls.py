@@ -16,6 +16,7 @@ urlpatterns = [
     path('register/', register_page, name='register'),# Registration page
     path('dashboard/', dashboard, name='dashboard'), # Dashboard page
     path('history/', history, name='history'),      # History page
+    path("logout/", views.logout_page, name="logout"), #logout page
     path("chatbot/", views.chatbot_page, name="chatbot"),  #chatbot page
     path("chatbot/api/", views.chatbot_api, name="chatbot_api"),
 ]

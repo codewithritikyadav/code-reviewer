@@ -12,21 +12,21 @@ import os
 import google.generativeai as genai
 from dotenv import load_dotenv
 import re
-
+from django.contrib.auth import logout
 
 def home(request):
     return render(request, 'home.html')
 
-
 @login_required(login_url="/login/")
-
 def dashboard(request):
+
     if request.method == "POST":
         code = request.POST.get("code")
         language = request.POST.get("language")
 
         ai_result = review_code(language, code)
 
+        # Save history (KEEPING THIS AS YOU REQUIRED)
         CodeReview.objects.create(
             user=request.user,
             code=code,
@@ -37,16 +37,61 @@ def dashboard(request):
         # Store result temporarily in session
         request.session["ai_result"] = ai_result
 
-        # REDIRECT after POST
         return redirect("dashboard")
 
-    # GET request
+    # ================= GET REQUEST =================
+
     ai_result = request.session.pop("ai_result", None)
 
+    sections = None  # Default if no AI result
+    if ai_result:
+        sections = {
+            "score": "",
+            "errors": "",
+            "improvements": "",
+            "explanation": "",
+            "final_code": "",
+        }
+
+        current_section = None
+
+        for line in ai_result.splitlines():
+
+            clean_line = line.strip().lower()
+
+            # ---- DETECTION (Flexible) ----
+
+            if "score" in clean_line:
+                current_section = "score"
+                continue
+
+            elif "error" in clean_line or "bug" in clean_line:
+                current_section = "errors"
+                continue
+
+            elif "improvement" in clean_line or "best practice" in clean_line:
+                current_section = "improvements"
+                continue
+
+            elif "line by line" in clean_line or "line-by-line" in clean_line:
+                current_section = "explanation"
+                continue
+
+            elif "final" in clean_line and "code" in clean_line:
+                current_section = "final_code"
+                continue
+
+            # ---- ADD CONTENT ----
+
+            if current_section:
+                sections[current_section] += line + "\n"
     return render(request, "dashboard.html", {
-        "ai_result": ai_result
+        "sections": sections
     })
 
+def logout_page(request):
+    logout(request)
+    return redirect("home")
 
 def login_page(request):
     if request.method == "POST":
